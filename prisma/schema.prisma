@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tbl_times_futebol {
+  id           Int      @id @default(autoincrement())
+  clube        String   @db.VarChar(100)
+  ano_fundacao Int
+  estadio      String   @db.VarChar(100)
+  cidade       String   @db.VarChar(100)
+  preco_minimo Float    @db.Float
+  data_inicio  DateTime @db.DateTime(0)
+  data_fim     DateTime @db.DateTime(0)
+}
